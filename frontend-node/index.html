@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <h1>Generate a new Public Key</h1>
+    <button id="generatePublicKeyButton" >Click to Generate a new Public Key</button>
+    <div>this button will call the backend C#, which will</div>
+    <ul>
+        <li>Generate a new Key Pair (public key and private key)</li>
+        <li>The Private key is cached on the server side (in memory)</li>
+        <li>The public key is returned to the frontend as following</li>
+    </ul>
+    <pre id="publicKey"></pre>
+
+    <h1>Encrypt the Payload</h1>
+    <div>this is the payload content:</div>
+    <pre id="payload"></pre>
+    <button id="encryptButton">Click to Encrypt</button>
+    <div>We will use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto">Crypto API</a> to encrypt the payload on browser.
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto">The Crypto API</a> is supported by all modern browser.
+    </div>
+    <pre id="encryptedPayloadBase64"></pre>
+
+    <h1>Decrypt the Payload</h1>
+    <button id="decryptButton">Decrypt</button>
+    <div>this button will call the backend C#, which will use the cached private Key to decrypt the payload</div>
+    <pre id="decryptedPayload"></pre>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+  <style lang="scss">
+    pre {
+        color: blueviolet;
+    }
+  </style>
+</html>
